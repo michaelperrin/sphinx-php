@@ -34,7 +34,7 @@ def visit_bestpractice_node(self, node):
     self.set_first_last(node)
 
 def depart_bestpractice_node(self, node):
-    self.depart_admonition(node)
+    self.body.append('</div>\n')
 
 def setup(app):
     app.add_node(bestpractice, html=(visit_bestpractice_node, depart_bestpractice_node))
