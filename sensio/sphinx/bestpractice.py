@@ -1,25 +1,19 @@
-from docutils.parsers.rst import Directive, directives
 from docutils import nodes
-from docutils.parsers.rst.directives.admonitions import BaseAdmonition as make_admonition
+from docutils.parsers.rst import directives, Directive
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 
 from sphinx import addnodes
 from sphinx.locale import _
 
-class bestpractice(nodes.Admonition, nodes.Element):
+class bestpractice(nodes.admonition):
     pass
 
-class BestPractice(Directive):
-    has_content = True
+class BestPractice(BaseAdmonition):
     required_arguments = 0
-    optional_arguments = 1
-    final_argument_whitespace = True
-    option_spec = {}
+    node_class = bestpractice
 
     def run(self):
-        ret = make_admonition(
-            bestpractice, self.name, [_('Best Practice')], self.options,
-            self.content, self.lineno, self.content_offset, self.block_text,
-            self.state, self.state_machine)
+        ret = super(BestPractice, self).run(self)
         if self.arguments:
             argnodes, msgs = self.state.inline_text(self.arguments[0],
                                                     self.lineno)
