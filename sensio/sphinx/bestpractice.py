@@ -5,12 +5,12 @@ from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 from sphinx import addnodes
 from sphinx.locale import _
 
-class bestpractice(nodes.admonition):
+class BestPracticeNode(nodes.admonition):
     pass
 
 class BestPractice(BaseAdmonition):
     required_arguments = 0
-    node_class = bestpractice
+    node_class = BestPracticeNode
 
     def run(self):
         ret = super(BestPractice, self).run(self)
