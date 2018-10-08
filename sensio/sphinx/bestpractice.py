@@ -1,11 +1,6 @@
 from docutils.parsers.rst import Directive, directives
 from docutils import nodes
-
-# DeprecationWarning: make_admonition is deprecated, use docutils.parsers.rst.directives.admonitions.BaseAdmonition instead
-try:
-    from sphinx.util.compat import make_admonition
-except ImportError:
-    from docutils.parsers.rst.directives.admonitions import BaseAdmonition as make_admonition
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition as make_admonition
 
 from sphinx import addnodes
 from sphinx.locale import _
