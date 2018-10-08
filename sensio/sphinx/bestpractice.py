@@ -9,7 +9,7 @@ class BestPracticeNode(nodes.admonition):
     pass
 
 class BestPractice(BaseAdmonition):
-    required_arguments = 0
+    required_arguments = 1
     node_class = BestPracticeNode
 
     def run(self):
